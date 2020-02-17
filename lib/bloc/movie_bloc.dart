@@ -11,7 +11,6 @@ class MovieBloc {
   double pixels = 0.0;
 
   ReplaySubject<List<Movie>> _subject = ReplaySubject();
-
   final ReplaySubject<ScrollNotification> _controller = ReplaySubject();
 
   Observable<List<Movie>> get stream => _subject.stream;
