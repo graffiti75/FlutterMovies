@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_movies/ui/movie_detail.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter/material.dart';
 
 import 'bloc/movie_bloc.dart';
 import 'bloc/movie_detail_bloc_provider.dart';
@@ -57,24 +57,29 @@ class _MyHomePageState extends State<MyHomePage> {
       return Center(child: CircularProgressIndicator());
     }
     movies.addAll(snapshot.data);
+
     return GridView.builder(
         itemCount: (maxMovies.length > movies.length)
             ? movies.length + 1
             : movies.length,
         gridDelegate:
             new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-        itemBuilder: (BuildContext context, int index) {
-          return GridTile(
-            child: InkResponse(
-              enableFeedback: true,
-              child: Image.network(
-                'https://image.tmdb.org/t/p/w185${movies[index].posterPath}',
-                fit: BoxFit.cover,
-              ),
-              onTap: () => openDetailPage(movies[index], index),
-            ),
-          );
-        });
+        itemBuilder: (context, index) => (index == movies.length)
+            ? Container(
+                child: Center(
+                  child: CircularProgressIndicator(),
+                ),
+              )
+            : GridTile(
+                child: InkResponse(
+                  enableFeedback: true,
+                  child: Image.network(
+                    'https://image.tmdb.org/t/p/w185${movies[index].posterPath}',
+                    fit: BoxFit.cover,
+                  ),
+                  onTap: () => openDetailPage(movies[index], index),
+                ),
+              ));
   }
 
   openDetailPage(Movie data, int index) {
