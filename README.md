@@ -43,7 +43,7 @@ This project description is intentionally vague in some aspects, but if you need
 
 Here I include the list of third-party libraries I used, and short description of why/how they were used.
 
-1. http: ^0.12.0+2
+## 1. http: ^0.12.0+2
 
 This library is used to perform HTTP request from the Web.
 
@@ -72,7 +72,7 @@ class API {
 }
 ```
 
-2. provider: ^3.1.0
+## 2. provider: ^3.1.0
 
 This library is used to bind the notifications of the Pagination with the Widget used in `main.dart`. It is a mixture between dependency injection (DI) and state management, built with widgets for widgets.
 
@@ -134,7 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 ```
 
-3. rxdart: ^0.22.2
+## 3. rxdart: ^0.22.2
 
 This library is also used to manage the notifications of the Pagination of data retrieved from the TMDb API.
 
